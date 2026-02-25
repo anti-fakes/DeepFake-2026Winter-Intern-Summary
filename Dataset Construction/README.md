@@ -5,7 +5,7 @@
 ---
 
 ## 1. 이미지 생성의 4가지 구성 요소
-<img src="https://github.com/user-attachments/assets/d4dfeaf1-7afd-492a-a070-76d697742c1a" width="100%">
+<img width="1207" height="652" alt="image" src="https://github.com/user-attachments/assets/3b9b4e4a-8d2a-422f-b81c-edf99ff40ee0" />
 
 
 
@@ -59,6 +59,8 @@ LLM을 활용하여 다양한 이미지 캡션을 생성하기 위해 아래와 
 
 * 같은 이미지 캡션이라도 사용되는 촬영도구에 따라 T2I 모델이 다른 이미지를 출력하는 것을 확인할 수 있음.
 
+<br>
+
 ## 5-2. 예시 (동일 장르 + LLM의 랜덤성)
 | FOOD1 | FOOD2 | FOOD3 | 
 | :---: | :---: | :---: |
@@ -66,17 +68,18 @@ LLM을 활용하여 다양한 이미지 캡션을 생성하기 위해 아래와 
 
 | Landscape1 | Landscape2 | Landscape3 |
 | :---: | :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/fc3c3e29-c28d-42cc-a0b1-b45a382ea0b0" width="100%"> | <img src="https://github.com/user-attachments/assets/b7dda4cd-ab40-46f4-b295-94d7062a915f" width="100%"> | <img src="https://github.com/user-attachments/assets/f427e117-b4e1-4f5d-93ed-5a85608f8a98" width="100%"> |
+| <img src="https://github.com/user-attachments/assets/fc3c3e29-c28d-42cc-a0b1-b45a382ea0b0" width="100%" height="450"> | <img src="https://github.com/user-attachments/assets/b7dda4cd-ab40-46f4-b295-94d7062a915f" width="100%" height="450"> | <img src="https://github.com/user-attachments/assets/f427e117-b4e1-4f5d-93ed-5a85608f8a98" width="100%" height="450"> |
 
 
 * 동일 장르 + 촬영도구 내에서도 LLM이 다양한 이미지를 생성하는 것을 확인할 수 있음.
 
 <br>
 ## 6. 상식적(물리적) 오류 샘플 예시
-<img width="1024" height="1024" alt="photojournalism_(11)" src="https://github.com/user-attachments/assets/a3a66fa6-487b-4d3e-bff4-655a498f30f8" />
-<img width="1024" height="1024" alt="portrait_smartphone_nano_(3)" src="https://github.com/user-attachments/assets/2f223551-955f-47f5-b22a-40bad6ad4af6" />
-<img width="1024" height="1536" alt="sports_(9)" src="https://github.com/user-attachments/assets/b9e639b9-1393-4672-b5fa-8dee498071fe" />
-<img width="1024" height="1024" alt="Street_blackbox_nano_(7)" src="https://github.com/user-attachments/assets/0231f5b8-0d02-4037-9eb8-5ddf819d95f8" />
+
+| <img src="https://github.com/user-attachments/assets/2f223551-955f-47f5-b22a-40bad6ad4af6" width="220" height="220"> | <img src="https://github.com/user-attachments/assets/b9e639b9-1393-4672-b5fa-8dee498071fe" width="220" height="220"> | <img src="https://github.com/user-attachments/assets/0231f5b8-0d02-4037-9eb8-5ddf819d95f8" width="220" height="220"> | <img src="https://github.com/user-attachments/assets/a3a66fa6-487b-4d3e-bff4-655a498f30f8" width="220" height="220"> |
+| :---: | :---: | :---: | :---: |
+| **첫 번째 사진 설명**<br>(상세 내용) | **두 번째 사진 설명**<br>(상세 내용) | **세 번째 사진 설명**<br>(상세 내용) | **네 번째 사진 설명**<br>(상세 내용) |
+
 
 
 
