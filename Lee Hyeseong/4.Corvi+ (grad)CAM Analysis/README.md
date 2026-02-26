@@ -1,6 +1,6 @@
 <br>
 
-## 5. Dataset Evaluation Details (데이터셋별 세부 평가 결과)
+## 1. Dataset Evaluation Details (데이터셋별 세부 평가 결과)
 다양한 Real 및 Fake 데이터셋에 대한 모델(Corvi+)의 세부 탐지 성능과 정답/오답 샘플 수입니다.
 
 | | coco_real(real) | facebook_real | reddit_real | twitter_real | Redcaps(real) | Synthbuster(real) | z-image(fake) | GPT(fake) | Nanobanana(fake) | Wild_data(Ours) | twitter_fake | facebook_fake | reddit_fake |
@@ -9,3 +9,15 @@
 | **Corvi+(Stay-positive)** | 0.99 | 1 | 0.986 | 1 | 0.99 | 0.99 | 0.94 | 0.86 | 0.99 | 0.203 | 0.61 | 0.78 | 0.48 |
 | **Incorrect Sample** | 1 | 0 | 4 | 0 | 17 | 6 | 608 | 46 | 4 | 1509 | 105 | 30 | 294 |
 | **Correct Sample** | 999 | 136 | 285 | 61 | 2970 | 994 | 9048 | 301 | 443 | 384 | 125 | 102 | 271 |
+
+<br>
+
+## 2. GPT Model Metrics (세부 지표 분석)
+GPT 데이터셋에 대한 각 채널(CH)별 True Positive(TP)와 False Negative(FN)의 차이 및 비율을 분석한 결과입니다.
+
+| GPT | CH1636 | CH5 | CH1208 | CH214 | CH397 | CH1192 | CH1239 | CH604 | CH1623 | CH1667 |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **TP** | 0.701 | 1.114 | 1.275 | 1.16 | 0.794 | 1.218 | 0.949 | 1.278 | 0.82 | 0.971 |
+| **FN** | 0.01 | 0.026 | 0.031 | 0.03 | 0.021 | 0.034 | 0.027 | 0.041 | 0.028 | 0.033 |
+| **Diff(TP-FN)** | 0.691 | 1.089 | 1.245 | 1.13 | **0.772** | 1.184 | 0.922 | 1.237 | 0.792 | 0.938 |
+| **Ratio(TP/FN)** | 66.8 | 43.2 | 41.4 | 38.3 | **37.3** | 36.1 | 35.6 | 31.1 | 29.7 | 29.5 |
