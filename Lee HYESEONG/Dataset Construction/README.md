@@ -19,7 +19,7 @@
 <br>
 
 ## 2. 최종 이미지 캡션 생성 프롬프트 구조
-<img src="https://github.com/user-attachments/assets/3f994fe1-67b6-44c1-9a00-ca331b2fb048" width="100%">
+<img src="https://github.com/user-attachments/assets/f78dee13-dafe-466f-b844-75caae9ecd7f" width="100%">
 
 LLM을 활용하여 다양한 이미지 캡션을 생성하기 위해 아래와 같은 특징으로 캡션 프롬프트를 구성.
 1. LLM에게 역할을 부여하여 전문적인 LLM으로 활용하고자 유도.
@@ -31,11 +31,10 @@ LLM을 활용하여 다양한 이미지 캡션을 생성하기 위해 아래와 
 <br>
 
 ## 3. 촬영 도구 (Capture Device) 세부 정의
-
-<img src="https://github.com/user-attachments/assets/5a275fb3-4e76-4328-963a-c21bb7936a94" width="100%">
+<img src="https://github.com/user-attachments/assets/e41b841a-418f-4d11-9455-00a2303cd797" width="100%">
 
 기존의 불분명한 기기 차이를 극복하기 위해 디바이스의 특성을 구체적으로 재정의.
-* 정의: 기본적으로 Analog Film과 High-End DSLR 두 가지 경우로 명확히 나누고, 장르에 따라 Drone, Action Cam 등을 추가로 사용하도록 정의.
+* 정의: 기본적으로 Analog Film과 High-End DSLR 두 가지 경우로 명확히 나누고, 장르에 따라 Drone, Action Cam 등을 추가로 사용하도록 정의
 * 구체화: 사용할 장비, 시점, 느낌, 화질 등을 상세히 묘사하며, 특히 반드시 배제해야 할 특징들도 함께 언급하여 해당 디바이스의 고유한 느낌을 강하게 부여
 
 <br>
@@ -74,11 +73,12 @@ LLM을 활용하여 다양한 이미지 캡션을 생성하기 위해 아래와 
 * 동일 장르 + 촬영도구 내에서도 LLM이 다양한 이미지를 생성하는 것을 확인할 수 있음.
 
 <br>
+
 ## 6. 상식적(물리적) 오류 샘플 예시
 
 | <img src="https://github.com/user-attachments/assets/2f223551-955f-47f5-b22a-40bad6ad4af6" width="220" height="220"> | <img src="https://github.com/user-attachments/assets/b9e639b9-1393-4672-b5fa-8dee498071fe" width="220" height="220"> | <img src="https://github.com/user-attachments/assets/0231f5b8-0d02-4037-9eb8-5ddf819d95f8" width="220" height="220"> | <img src="https://github.com/user-attachments/assets/a3a66fa6-487b-4d3e-bff4-655a498f30f8" width="220" height="220"> |
 | :---: | :---: | :---: | :---: |
-| **첫 번째 사진 설명**<br>(상세 내용) | **두 번째 사진 설명**<br>(상세 내용) | **세 번째 사진 설명**<br>(상세 내용) | **네 번째 사진 설명**<br>(상세 내용) |
+| **객체 오류**<br>잔을 들고있는데 아래에 추가 잔이 존재 | **의미적 오류**<br>타자가 헬멧과 글러브를 동시에 착용한 채 홈으로 슬라이딩하는 비현실적 상황 | **물리적 구조 오류**<br>도로 중앙선이 없고, 단일 차선에서 양방향 차량이 동시에 주행하는 구조적 모순 | **중력/접촉 위반 오류**<br>보행자의 발이 지면과 완전히 맞닿지 않아 부유하는 듯한 형태로 표현 |
 
 
 
