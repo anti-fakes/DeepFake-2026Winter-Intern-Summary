@@ -18,21 +18,107 @@
 
 <br>
 
+<br>
+
 ## 2. 최종 이미지 캡션 생성 프롬프트 구조
-<img src="https://github.com/user-attachments/assets/f78dee13-dafe-466f-b844-75caae9ecd7f" width="100%">
 
 LLM을 활용하여 다양한 이미지 캡션을 생성하기 위해 아래와 같은 특징으로 캡션 프롬프트를 구성.
-1. LLM에게 역할을 부여하여 전문적인 LLM으로 활용하고자 유도.
-2. 생성할 이미지(Scene Graph)와 촬영 도구(Capture Device)를 분리.
-3. 무작위성 부여(RANDOM): Scene Graph를 `Subject + Action + Target + Location`으로 구체화하고 각 요소를 LLM이 결정하도록 하여 다양한 Scen Graph가 만들어지도록 유도함.
-4. 장르(Genre) 활용: 비정상적인 이미지 생성을 완화하기 위해 사용자가 장르를 설정하여 Domain을 줄이고, LLM이 비정상 혹은 비현실적인 캡션을 생성하지 않도록 강제.
-5. 최종 프롬프트: 구체적인 예시를 포함하여 최종 캡션 생성 프롬프트를 작성합니다.
+1. **LLM 역할 부여**: 전문적인 디렉터(Contextual Photography Director)로서의 역할을 부여하여 퀄리티 높은 결과물 유도.
+2. **요소 분리**: 생성할 이미지 내용(Scene Graph)과 촬영 도구(Capture Device)의 제약 조건을 명확히 분리.
+3. **무작위성 부여(RANDOM)**: Scene Graph를 `Subject + Action + Target + Location`으로 세분화하고, LLM이 각 요소를 무작위로 결정하게 하여 다채로운 장면 생성 유도.
+4. **장르(Genre) 활용**: 사용자가 장르를 설정해 도메인을 한정함으로써 비정상적이거나 비현실적인 캡션 생성을 방지.
+5. **최종 프롬프트 & 예시**: 구체적인 출력 포맷과 예시를 포함하여 일관된 형태의 캡션을 얻어냄.
 
 <br>
 
-## 3. 촬영 도구 (Capture Device) 세부 정의
-<img src="https://github.com/user-attachments/assets/e41b841a-418f-4d11-9455-00a2303cd797" width="100%">
+### 프롬프트 구조
+아래 코드 블록의 내용을 복사하여 LLM(ChatGPT, Gemini, Claude 등)에 붙여넣어 사용 가능.
+<br>
+Capture Device, Chareteristic, Genre를 사용자가 직접 설정하여 프롬프트에 추가해 사용
 
+````text
+[System Prompt]
+You are a "Contextual Photography Director". 
+Your goal is to generate a highly detailed image prompt 
+based on a randomly assembled Scene Graph and a specific Capture Device constraint.
+
+[Instruction]
+1. Randomly select variables for the Scene Graph.
+   - IMPORTANT: The 'Subject' can be a person, an object, or a landscape feature.
+   - If the Subject is a static object or landscape, set Action and Target to 'None'.
+2. Apply the strict visual description associated with the selected Capture Device.
+
+---
+1. Scene Graph Generation (Randomly Pick One)
+- Subject (Who/What): {Random Entity} (e.g., A tired nurse, A solitary mountain peak, A spilled coffee cup, A cute animal)
+- Action (Doing what): {Random Verb OR 'None'} (e.g., staring at, running from, melting. Use 'None' for landscapes/still life)
+- Target (To whom/what): {Random Object OR 'None'} (Connects to Action. Use 'None' if intransitive or no action)
+- Location (Where): {Random Place} (e.g., Flooded subway station, Sunlit park, Neon-lit alley, On a velvet table)
+
+2. Capture Device
+Retrieve the "Description" for the selected Capture Device.
+- Capture device: {capture Device}
+- Description: {characteristics}
+
+3. Prompt Construction:
+- The prompt must describe visual imperfections and capture artifacts FIRST.
+- Camera characteristics must reflect in-the-wild usage, not ideal studio conditions.
+
+[Format Structure]
+"[Capture Device characteristics + (optional)], a {Genre} photography image of [Subject] [Action] [Target] in [Location], shot on [Capture Device] in an unplanned, real-world setting." 
+
+The image should appear as a naturally captured real-world photograph.
+
+---
+4. Output Generation
+DO NOT GENERATE AN IMAGE.
+Instead, output ONLY the final text prompt inside a code block, ready for copy-pasting.
+
+[Output Example]
+Shot on Sony A7R V, 85mm f/1.2 GM, shallow depth of field with imperfect focus, 
+subtle motion blur from hand movement, natural color noise, visible JPEG compression artifacts, 
+a street photography image of an elderly street musician playing 
+a worn violin on a crowded pedestrian street during an overcast afternoon.
+````
+
+<br>
+<br>
+
+## 3. Capture Devices Database (촬영 기기 데이터베이스)
+프롬프트 생성 시 LLM이 참고할 수 있는 촬영 기기별 시각적 특성 및 제약 조건(Negative Prompt). 이 데이터베이스를 통해 기기 고유의 물리적 특성과 결함을 프롬프트에 사실적으로 반영
+
+<br>
+
+### 촬영 장비 데이터베이스
+아래 코드 블록을 복사하여 시스템 프롬프트의 하단이나 참조용 데이터베이스로 추가.
+
+````text
+[Database: Capture Devices]
+
+1. Analog Film
+   - Characteristics: Shot on 35mm film, Kodak Portra 400, natural film grain, slight motion blur, uneven exposure, subtle lens flare, soft focus falloff, organic texture casual snapshot. 
+   - Negative: --no digital perfection, hdr, 4k, sharp, cgi
+
+2. High-End DSLR
+   - Characteristics: Shot on Sony A7R V, 85mm f/1.2 GM, creamy bokeh, non-uniform sharpness across frame, realistic lens perfections, occasional chromatic aberration.
+   - Negative: --no noise, cctv, distortion, flat
+
+3. CCTV
+   - Characteristics: CCTV footage, security camera overlay, fixed high-angle view, wide lens distortion, low bitrate compression, muted colors, slight motion blur, chromatic aberration near the edges.
+   - Negative: --no bokeh, high quality, studio lighting
+
+4. Dashcam (Black Box)
+   - Characteristics: Dashcam footage, view from inside car windshield, visible dashboard at bottom, wide-angle distortion, harsh contrast, slight motion blur from vehicle movement, windshield reflections.
+   - Negative: --no bokeh, cinematic lighting, person holding camera, third person view.
+
+5. Drone
+   - Characteristics: Aerial photography, shot on DJI Mavic 3 Cine, bird's-eye view, high altitude, epic scale, sharp detail from edge to edge, mild atmospheric haze, slight motion blur from wind drift.
+   - Negative: --no ground level shot, person holding camera, bokeh, shallow depth of field.
+
+6. Action Cam (Optional)
+   - Characteristics: Shot on GoPro Hero 12, fisheye lens, barrel distortion, high contrast, deep focus. 
+   - Negative: --no telephoto, portrait blur, soft lighting.
+````
 기존의 불분명한 기기 차이를 극복하기 위해 디바이스의 특성을 구체적으로 재정의.
 * 정의: 기본적으로 Analog Film과 High-End DSLR 두 가지 경우로 명확히 나누고, 장르에 따라 Drone, Action Cam 등을 추가로 사용하도록 정의
 * 구체화: 사용할 장비, 시점, 느낌, 화질 등을 상세히 묘사하며, 특히 반드시 배제해야 할 특징들도 함께 언급하여 해당 디바이스의 고유한 느낌을 강하게 부여
@@ -41,7 +127,7 @@ LLM을 활용하여 다양한 이미지 캡션을 생성하기 위해 아래와 
 
 ## 4. 파이프라인 요약 및 결과
 
-* 주제(Subject)와 촬영 도구(Capture Device)는 사용자가 직접 선정할 수 있도록 하며, 객체(Object)와 관계(Relationship)의 생성은 LLM에게 위임하여 랜덤하게 구성.
+* 주제(Subject)와 촬영 도구(Capture Device)는 사용자가 직접 선정할 수 있도록 하며, 객체(Object)와 관계(Relationship)의 생성은 LLM에게 위임하여 랜덤하게 다양한 캡션 구성.
 * 얻어진 캡션을 T2I 모델의 입력으로 사용하여 최종 이미지를 생성.
 
 
