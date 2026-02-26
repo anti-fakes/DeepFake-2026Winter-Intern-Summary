@@ -26,7 +26,7 @@ Technical Report – 2026 Winter Research Internship
 
 ---
 
-## 4. Corvi+ Internal Analysis
+## 4. Corvi+ (grad)CAM Analysis
 
 - Feature map importance ranking
 - Top-40 channel dominance
