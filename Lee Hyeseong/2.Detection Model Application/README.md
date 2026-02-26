@@ -1,43 +1,13 @@
-# DeepFake-2026Winter-Intern-Summary
-Technical Report – 2026 Winter Research Internship
+<br>
 
-## 1. Dataset Construction
+## 4. Evaluation Results (성능 평가 결과)
+각 데이터셋 및 이미지 생성 모델에 대한 탐지 모델(Detector)별 성능 평가와 Hard Samples 추출 결과입니다.
 
-- Origin–Manip matching pipeline
-- Face segmentation (SAM2)
-- DGM4 extension
-- Additional manipulation generation
-
----
-
-## 2. Detection Model Application
-
-- Applied Corvi+
-- Evaluation on extended dataset
-- Accuracy, Precision, Recall
-
----
-
-## 3. Hard Sample Analysis
-
-- False negative analysis
-- Frequency spectrum study
-- Contrast and texture dependency analysis
-
----
-
-## 4. Corvi+ (grad)CAM Analysis
-
-- Feature map importance ranking
-- Top-40 channel dominance
-- Grad-CAM visualization
-- Bias toward low-level texture features
-
----
-
-## 5. Conclusion
-
-- Dataset expansion improved diversity
-- Model shows channel-level bias
-- Hard samples reveal structural limitations
-- Future work: robust & semantic-aware detection
+| Dataset / Model | DDA | B-Free | SAFE | Rajan+ | Corvi+ | Hard Samples |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **COCO_real** | 0.97 | 0.99 | 0.784 | 0.999 | 0.999 | - |
+| **Z-Image Turbo** | 0.203 | 0.266 | 0.709 | 0.032 | **0.94** | 40 |
+| **Wild_data** (1,893) | 0.197 | **0.376** | 0.071 | 0.131 | 0.203 | 892 |
+| **Nanobanana** | 0.53 | 0.463 | 0.839 | 0.894 | **0.991** | 0 |
+| **GPT** (347) | 0.009 | 0.04 | 0.741 | 0.034 | **0.867** | 42 |
+| **Total** | | | | | | **974** |
