@@ -27,7 +27,7 @@
 <br>
 <br>
 
-## 4. Evaluation Results (성능 평가 결과)
+## Evaluation Results (성능 평가 결과)
 T2I 모델별 데이터셋 및 이미지 생성 모델에 대한 탐지 모델(Detector)별 성능 평가와 Hard Samples 추출 결과.
 
 | Dataset / Model | DDA | B-Free | SAFE | Rajan+ | Corvi+ | Hard Samples |
