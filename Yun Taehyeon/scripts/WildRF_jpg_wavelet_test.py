@@ -9,14 +9,13 @@ from tqdm import tqdm
 # ==========================================
 # 1. 실험 설정 (Configuration)
 # ==========================================
-# WildRF 데이터셋 경로로 수정해주세요
+# WildRF 데이터셋 경로
 dataset_paths = {
-    "WildRF_Real": r"/home/greatgompang/zimage/WildRF/train/0_real",  # 실제 경로 입력
-    "WildRF_Fake": r"/home/greatgompang/zimage/WildRF/train/1_fake"   # 실제 경로 입력
+    "WildRF_Real": r"/path/to/dir",  # 실제 경로 입력
+    "WildRF_Fake": r"/path/to/dir"   # 실제 경로 입력
 }
 
-# 강제 압축 파라미터 (Stress Level)
-# QF가 낮을수록(50 이하) Real/Fake의 반응 차이가 커질 가능성이 높음
+# 압축 파라미터 (Stress Level)
 JPEG_QUALITY = 70 
 IMG_SIZE = 512
 
@@ -103,7 +102,6 @@ for name, path in dataset_paths.items():
     results[name] = process_dataset(path)
 
 # 히스토그램 그리기
-# GUI 없는 환경 대응
 import matplotlib
 matplotlib.use('Agg') 
 
