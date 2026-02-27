@@ -29,6 +29,11 @@
 - **TP / FN**: GPT, Z-image
 - **FP / TN**: COCO, Redcaps, Synthbuster
 
+### 용어 정의
+1. **TP** → Fake 이미지를 Fake 이미지로 판단한 경우(Fake 정탐)
+2. **FN** → Fake 이미지를 Real 이미지로 판단한 경우(Fake 오탐)
+3. **FP** → Real 이미지를 Real 이미지로 판단한 경우(Real 정탐)
+4. **TN** → Real 이미지를 Fake 이미지로 판단한 경우(Real 오탐)
 <br>
 
 ## 사전 실험: Corvi+ 성능 확인 
