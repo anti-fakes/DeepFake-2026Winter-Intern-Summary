@@ -1,7 +1,34 @@
+
+##  DeepFake Detection Methods (AI 이미지 탐지 기법)
+딥페이크 및 AI 생성 이미지를 탐지하기 위해 사용되는 6가지 주요 기법 정리
+
+1. **Semantic (의미론적) 기반**
+   * Contextual(맥락적) 오류를 탐지.
+   * *ex) 손가락이 6개이거나, 안경테가 한 쪽만 있는 경우 등 물리적/상식적 모순을 찾음.*
+
+2. **Visual Artifact (시각적 아티팩트) 기반**
+   * AI가 이미지를 생성하면서 남긴 시각적 흔적(Artifact)을 탐지.
+   * *ex) 머리카락 끝이 뭉개지거나, 배경과의 경계선이 부자연스러운 경우 등을 확인.*
+
+3. **Frequency (주파수) 기반**
+   * 이미지를 주파수 영역(Frequency domain)으로 변환하여 분석.
+   * *AI 모델 특유의 인공적인 패턴(예: 바둑판 무늬, checkerboard artifact)을 확인.*
+
+4. **Diffusion-aware (디퓨전 인지) 기반**
+   * 이미지에 임의의 노이즈를 적용하여, 해당 이미지가 Diffusion 모델 기반으로 생성되었는지 역추적하여 탐지.
+   * *Diffusion 기반 생성형 AI 모델에 특화된 탐지 기법.*
+
+5. **Ensemble (앙상블)**
+   * 단일 기법에 의존하지 않고, 위에서 언급된 여러 기법들을 복합적으로 적용하여 최종 탐지 결과를 판단.
+
+6. **Rule-Based (규칙 기반)**
+   * 눈에 보이지 않는 워터마크(Watermark)나 메타데이터(Metadata) 등 객관적이고 확실한 증거를 기반으로 AI 생성 여부를 판단.
+
+<br>
 <br>
 
 ## 4. Evaluation Results (성능 평가 결과)
-각 데이터셋 및 이미지 생성 모델에 대한 탐지 모델(Detector)별 성능 평가와 Hard Samples 추출 결과입니다.
+T2I 모델별 데이터셋 및 이미지 생성 모델에 대한 탐지 모델(Detector)별 성능 평가와 Hard Samples 추출 결과.
 
 | Dataset / Model | DDA | B-Free | SAFE | Rajan+ | Corvi+ | Hard Samples |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
