@@ -125,7 +125,7 @@ Pilot test에 활용한 image 목록은 다음과 같다.
 
 #### Results
 결과는 아래와 같으며, pilot test를 통한 분석은 다음과 같다.
-![instagram_compression_pilot_test](https://hackmd.io/_uploads/B1GCSvRObe.png)
+![instagram_compression_pilot_test](./img/instagram_compression_pilot_test.png) 
 
 - Mobile Environment에서 더 큰 압축이 일어난다.
 - Mobile Environment Compression의 경우 확장자가 `.webp`로 바뀌어, 2차 압축이 불가하다.
