@@ -30,6 +30,15 @@
 ## Evaluation Results (성능 평가 결과)
 T2I 모델별 데이터셋 및 이미지 생성 모델에 대한 탐지 모델(Detector)별 성능 평가와 Hard Samples 추출 결과.
 
+#### Detection Model
+- DDA: <https://github.com/roy-ch/Dual-Data-Alignment>
+- B-Free: <https://github.com/grip-unina/B-Free/tree/main>
+- SAFE: <https://github.com/Ouxiang-Li/SAFE>
+- Stay-Positive(Rajan+): <https://github.com/AniSundar18/AlignedForensics>
+- Stay-Positive(Corvi+): <https://github.com/AniSundar18/AlignedForensics>
+
+<br>
+
 | Dataset / Model | DDA | B-Free | SAFE | Rajan+ | Corvi+ | Hard Samples |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **COCO_real** | 0.97 | 0.99 | 0.784 | 0.999 | 0.999 | - |
