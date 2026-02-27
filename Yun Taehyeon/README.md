@@ -80,7 +80,7 @@ Total 2,213 samples 수집 완료함.
 - subject: parti-prompts로 생성한 경우 생성 주제가 존재하여 subject 첨부
 - source_content: `null` (real image 부재로 인해 불필요 component)
 
-![Metadata Example](https://hackmd.io/_uploads/Hk_fzP0ubg.png)
+![metadata_screenshot](./img/metadata_screenshot.png)
 
 ## 2. Instagram Compression Policy Reverse Engineering
 ### 2-1. 👨‍🔬실험 동기 및 실험 데이터셋
