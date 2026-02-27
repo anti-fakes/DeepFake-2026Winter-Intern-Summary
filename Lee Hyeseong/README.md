@@ -1,5 +1,6 @@
 # DeepFake-2026Winter-Intern-Summary (LEEHYESEONG)
 Technical Report – 2026 Winter Research Internship
+<br>
 아래의 각 항목별 내용을 각 폴더의 README에서 확인 가능 
 
 ## 1. Dataset Construction
