@@ -135,18 +135,35 @@ Z-image 데이터셋에 대한 각 채널(CH)별 True Positive(TP)와 False Nega
 - **CH1636**: TP에서 강한 heatmap, FN에서는 반응 영역이 거의 없을 것으로 예상
 - **CH338**: FN에서도 일부 영역에서 heatmap 반응이 유지될 것으로 예상
 
-### 결과 예시 사진 
+### 결과 예시 사진 (GPT TP-FN)
+| GPT: TP | GPT: FN |
+|:---:|:---:|
+| <img src="https://github.com/user-attachments/assets/3e431aee-ed6f-43d3-8e94-8b6eb8370f29" height="350"> | <img src="https://github.com/user-attachments/assets/85b9a7f1-4705-4e7f-bdc4-2d3b35906735" height="350" > 
 
+
+
+### 결과 예시 사진 (Z-image TP-FN)
+| Z-image: TP | Z-image: FN |
+|:---:|:---:|
+| <img src="https://github.com/user-attachments/assets/044f3a1e-4656-4a0f-8975-3a8f8b248c06" height="350"> | <img src="https://github.com/user-attachments/assets/1958a2b5-9548-4435-9cf7-955b820b2b35" height="350" > 
+
+- 오탐에 민감할거라 예상한 1636번 채널은 특정 아티팩트에 비교적 더 강하게 반응하고 해당 아티팩트가 존재하지 않는 경우 낮은 점수를 주는 것을 확인할 수 있다.
+- 해당 아티팩트가 FN이미지에선 거의 존재하지 않는 것으로 보아 Fake이미지의 공통적인 아티팩트라 보고 어렵다고 생각된다.
+- 오탐에 강건할 것이라 예상한 338번 채널은 비교적 Fake이미지들에 대해 공통적으로 더 많이 활성화 된 것을 확인할 수 있다.
+- 338번 채널이 보는 아티팩트가 조금 더 Fake Aritifact를 본다고 예상된다.
+- 위 생각을 증명하기 위해선 Real 이미지들을 확인해 Fake only Artifact인지 확인해야 한다. 
+
+ 
 ---
 
 ## 6. 종합 결과
 
-- TP, TN, FP, FN 4분류 모두에서 Attribution 상위 10개 채널의 합이 전체 Attribution의 50% 이상 차지
-- Attribution 하위 10개 채널의 합은 전체의 6% 이하
-- 채널별 Activation 값은 대부분의 채널에서 TP > FP > FN > TN 경향
-- GPT, Z-image의 FN 이미지들은 20개 이상의 채널에서 0.1 이하의 값을 가짐
-  - 학습한 Fake 아티팩트가 존재하지 않는 것처럼 보인다
-- Fake 이미지(GPT, Z-image)에 대해 사용되는 상위 채널이 유사함
-  - CH1192, CH7, CH604 등 상위 공통채널은 거의 동일하다
+- TP, TN, FP, FN 4분류 모두에서 Attribution 상위 10개 채널의 합이 전체 Attribution의 50% 이상 차지한다.
+- Attribution 하위 10개 채널의 합은 전체의 6% 이하를 차지한다.
+- 채널별 Activation 값은 대부분의 채널에서 TP > FP > FN > TN 경향을 보인다.
+- GPT, Z-image의 FN 이미지들은 20개 이상의 채널에서 0.1 이하의 값을 가진다.
+  - 학습한 Fake 아티팩트가 존재하지 않는 것처럼 보인다.
+- Fake 이미지(GPT, Z-image)에 대해 사용되는 상위 채널이 유사하다.
+  - CH1192, CH7, CH604 등 상위 공통채널은 거의 동일하다.
 <br>
 <br>
