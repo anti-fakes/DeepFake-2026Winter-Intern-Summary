@@ -17,9 +17,12 @@
 
 ---
 
-## 분석 결과
+<br>
 
-### 1. 주파수 기반 분석
+# 분석 결과
+<br>
+
+## 1. 주파수 기반 분석
 ### TN, FP, TP, FN 각 영역 이미지들의 2D FFT 평균 스펙트럼 분석 결과
 <img width="3980" height="937" alt="image" src="https://github.com/user-attachments/assets/c4fcb51b-2a6f-471e-b400-e675213e0b08" />
 
@@ -43,14 +46,25 @@
    - TP보다 TN에 가까운 스펙트럼 분포를 보임.
    - 즉, AI로 생성됐음에도 실제 이미지(TN)와 비슷한 주파수 특성을 가짐.
 
+<br>
+
+### 주파수 에너지 분포 분석 (Radial Frequency Profile) 결과 
+- X축: Log 주파수 (저주파 → 고주파)
+- Y축: Log 에너지 (파워)
+- Slope: 곡선의 기울기 → 값이 클수록(가파를수록) 저주파에 에너지가 집중됨
+ <img width="1979" height="1578" alt="image" src="https://github.com/user-attachments/assets/75d29958-8fcc-4bd8-b1d8-905eb5091b8d" />
+ 
 ### 특정 주파수 대역에서 두드러진 에너지 증가가 존재하지 않는다.
 - 특정 아티팩트에 에너지가 몰려 있지 않다.
 
-### 2. 시각적 유사도 확인 (ResNet-50 + t-SNE)
+<br>
+<br>
+
+## 2. 시각적 유사도 확인 (ResNet-50 + t-SNE)
 - TP(페이크 정탐) 이미지와 Hard Sample은 분리가 되는 것을 확인할 수 있다.
 - Real 이미지와 Hard Sample은 분리가 제대로 되지 않는 것이 확인된다.
   - **Hard Sample이 Real 이미지의 특성을 가지고 있다.**
 
-### 3. 의미적 유사도 확인 (CLIP + UMAP)
+## 3. 의미적 유사도 확인 (CLIP + UMAP)
 - Hard Sample 내에서의 유사도(왼쪽)와 TP(페이크 정탐), Real과 TP(페이크 정탐) 이미지와 함께 실험한 결과(오른쪽)
 - 뚜렷한 경향성이 존재하지 않는 것을 확인할 수 있다.
