@@ -136,6 +136,8 @@ Z-image 데이터셋에 대한 각 채널(CH)별 True Positive(TP)와 False Nega
 - **CH338**: FN에서도 일부 영역에서 heatmap 반응이 유지될 것으로 예상
 
 ### 결과 예시 사진 (GPT TP-FN)
+- 위의 사진은 채널 1636(오탐에 민감), 아래 사진은 채널 338번(오탐에 강건)의 CAM결과
+
 | GPT: TP | GPT: FN |
 |:---:|:---:|
 | <img src="https://github.com/user-attachments/assets/3e431aee-ed6f-43d3-8e94-8b6eb8370f29" height="350"> | <img src="https://github.com/user-attachments/assets/85b9a7f1-4705-4e7f-bdc4-2d3b35906735" height="350" > 
@@ -143,6 +145,8 @@ Z-image 데이터셋에 대한 각 채널(CH)별 True Positive(TP)와 False Nega
 
 
 ### 결과 예시 사진 (Z-image TP-FN)
+- 위의 사진은 채널 1636(오탐에 민감), 아래 사진은 채널 338번(오탐에 강건)의 CAM결과
+
 | Z-image: TP | Z-image: FN |
 |:---:|:---:|
 | <img src="https://github.com/user-attachments/assets/044f3a1e-4656-4a0f-8975-3a8f8b248c06" height="350"> | <img src="https://github.com/user-attachments/assets/1958a2b5-9548-4435-9cf7-955b820b2b35" height="350" > 
