@@ -15,6 +15,11 @@
 3. **ResNet-50 기반 시각적 유사도 분석** → 공통적인 질감, 구조, 형태가 존재하는가?
 4. **CLIP 기반 의미적 유사도 분석** → 공통적인 이미지의 주제나 의미가 존재하는가?
 
+## 용어 정의
+1. **TP** → 사람의 눈으로 판단되는 공통적인 부분이 존재하는가?
+2. **FN** → Hard Sample에서 공통적으로 드러나는 주파수 or 픽셀 흔적이 존재하는가?
+3. **FP** → 공통적인 질감, 구조, 형태가 존재하는가?
+4. **TN** → 공통적인 이미지의 주제나 의미가 존재하는가?
 ---
 
 <br>
@@ -60,7 +65,7 @@
 <br>
 <br>
 
-## 2. 시각적 유사도 확인 (ResNet-50 + t-SNE)
+## 2. 시각적 유사도(Artifact) 분석 (ResNet-50 + t-SNE)
 -상용 탐지모델 중 성능이 가장 좋았던 ResNet-50 기반의 Corvi+를 백본으로 한 영역별 분포 t-SNE 시각화.
 <img width="2377" height="1977" alt="image" src="https://github.com/user-attachments/assets/fdf9b074-b296-4cf7-b835-5469dab63313" />
 
@@ -71,7 +76,7 @@
 <br>
 <br>
 
-## 3. 의미적 유사도 확인 (CLIP + UMAP)
+## 3. 의미적 유사도 분석 (CLIP + UMAP)
 - CLIP의 백본에 최종 출력 전 결과 벡터를 기반으로 UMAP 시각화를 진행
 - Hard Sample이 CLIP의 feature extraction 과정을 통해 분리가 되는지 확인하고자 실험을 진행 
 <img width="2966" height="2371" alt="image" src="https://github.com/user-attachments/assets/c24ee5f3-a223-4deb-b0ed-be340c8ec43f" />
@@ -80,3 +85,23 @@
 - Hard Sample(FN)만의 고유한 의미적 패턴이 없다 → 특정 주제나 장면에 편향되지 않고 다양한 콘텐츠로 구성됨
 - Real과 Fake를 의미적으로 구분할 수 없다(추가적인 학습이 필요해 보인다) → CLIP 수준에서는 AI 이미지와 실제 이미지가 동일한 시맨틱 공간을 공유
 - t-SNE에서 보인 Real_TN과의 유사성은 시각적 특성 때문 → 의미가 비슷해서가 아니라 픽셀/텍스처 레벨의 특성이 비슷한 것으로 보인다
+
+<br>
+<br>
+<br>
+<br>
+
+# 추가실험(T21-based Image Only)
+## 배경 및 목적
+Hard Sample에 포함된 Wild 데이터는 압축에 따른 변화가 존재하기에 GPT, Z-image의 T2I모델의 분석 결과와 다른 경향성을 보일 수 있다. 
+해서 Wild data를 제외한 GPT, Z-imamge의 Hard Sample만으로 위의 동일한 분석을 추가로 진행 
+
+## 실험 결과 
+### 1. 주파수 분석 
+<img width="3980" height="937" alt="image" src="https://github.com/user-attachments/assets/d517c125-1c6e-49db-89a3-0ab9e6cffd00" />
+<img width="1979" height="1578" alt="image" src="https://github.com/user-attachments/assets/e346a372-6a5e-4a2f-9d5c-41f921bfb2b8" />
+
+### 2. 시각적 유사도(Artifact) 분석 (ResNet-50 + t-SNE)
+<img width="2377" height="1977" alt="image" src="https://github.com/user-attachments/assets/4fe09b1f-4c20-491f-b00b-506b1bc54c3b" />
+### 3. 의미적 유사도 분석 (CLIP + UMAP)
+<img width="2966" height="2371" alt="image" src="https://github.com/user-attachments/assets/17b9ff87-6a6c-419f-99d4-e031b3c71084" />
