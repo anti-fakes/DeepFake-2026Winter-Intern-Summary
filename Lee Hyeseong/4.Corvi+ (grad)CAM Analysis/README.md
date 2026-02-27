@@ -4,6 +4,8 @@
 사용한 탐지모델 중 가장 뛰어난 성능을 보이는 Corvi+에 대한 추가적인 분석 진행
 학습된 가중치나 활성화된 채널의 탐지에 대한 실제 기여도를 확인함으로써 모델의 한계점이나 향후 개선 방향 제시
 
+#### Detection Model
+- Stay-Positive(Corvi+): <https://github.com/AniSundar18/AlignedForensics>
 ---
 
 ## 1. Corvi+ 모델의 학습된 가중치 확인
