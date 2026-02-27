@@ -138,7 +138,7 @@ Pilot test의 결과를 바탕으로, 본 실험 시 n차 압축은 PC Environme
 
 #### Results
 결과는 아래와 같다.
-![instagram_compression_100](https://hackmd.io/_uploads/B1UpuDA_Wx.png)
+![instagram_compression_100](./img/instagram_compression_100.png)
 
 
 #### PC Environment
